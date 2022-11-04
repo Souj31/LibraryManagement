@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Library Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Library Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/userlogin}">Sign Up</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Create New User </h1>
+				<div class = "card-body">
+					<form th:action="@{/book}" th:object = "${bk}" method="POST">
+						<div class ="form-group">
+							<label> Book Name </label>
+							<input
+							type = "text"
+							name = "bname"
+							th:field = "*{bname}"
+							class = "form-control"
+							placeholder="Enter Book Name" 
+							required="required"
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> AuthorName </label>
+							<input
+							type = "text"
+							name = "bauthor"
+							th:field = "*{bauthor}"
+							class = "form-control"
+							placeholder="Enter AuthorName" 
+							required="required"
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Book Publisher </label>
+							<input
+							type = "text"
+							name = "bpublisher"
+							th:field = "*{bpublisher}"
+							class = "form-control"
+							placeholder="Enter Book Publisher" 
+							required="required"
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> No of Copies </label>
+							<input
+							type = "number"
+							min="1" oninput="this.value = Math.abs(this.value)"
+							name = "bcopies"
+							th:field = "*{bcopies}"
+							class = "form-control"
+							placeholder="Enter No of Copies"
+							required="required" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Published Date </label>
+							<input
+							type = "date"
+							name = "pdate"
+							th:field = "*{pdate}"
+							class = "form-control"
+							placeholder="Enter Published Date" 
+							required="required"
+							/>
+						</div>
+						
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
